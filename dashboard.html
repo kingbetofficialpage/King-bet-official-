@@ -8,45 +8,53 @@
         body { background-color: #000; color: #fff; margin: 0; padding: 15px; font-family: sans-serif; }
         
         .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
-        
-        /* ඩයමන්ඩ් දිලිසෙන කොටස */
         .diamond-box { 
             background: #222; padding: 6px 18px; border-radius: 20px; font-weight: bold; color: #ffcc00; 
-            border: 1px solid #ffcc00; 
-            box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; 
+            border: 1px solid #ffcc00; box-shadow: 0 0 15px #ffcc00; 
             animation: pulse 1.5s infinite;
         }
         @keyframes pulse { 0% { box-shadow: 0 0 5px #ffcc00; } 50% { box-shadow: 0 0 20px #ffcc00; } 100% { box-shadow: 0 0 5px #ffcc00; } }
         
-        /* වීඩියෝ ලින්ක් පින්තූරය */
-        .video-box { width: 100%; aspect-ratio: 16 / 9; border: 2px solid red; border-radius: 15px; overflow: hidden; margin-bottom: 20px; background: #000; }
-        .video-box img { width: 100%; height: 100%; object-fit: contain; }
+        .video-box { width: 100%; aspect-ratio: 16 / 9; border: 2px solid red; border-radius: 15px; overflow: hidden; margin-bottom: 20px; }
+        .video-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* ගේම්ස් පින්තූර - පින්තූර පැහැදිලිව තිරය පුරා */
-        .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-bottom: 30px; }
-        .game-item { width: 100%; aspect-ratio: 1 / 1; border: 2px solid #00ff00; border-radius: 15px; overflow: hidden; background: #111; }
+        .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .game-item { width: 100%; aspect-ratio: 1 / 1; border: 2px solid #00ff00; border-radius: 15px; overflow: hidden; }
         .game-item img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .screen { display: none; }
+        .active { display: block; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div style="font-weight: bold;">👤 Profile</div>
-        <div class="diamond-box">💎 ඩයමන්ඩ්: 0</div>
+    <div id="main-screen" class="screen active">
+        <div class="header">
+            <div style="font-weight: bold;">👤 Profile</div>
+            <div class="diamond-box">💎 ඩයමන්ඩ්: <span id="balance">500.00</span></div>
+        </div>
+
+        <div class="video-box">
+            <a href="https://youtu.be/yDrej0e4GWE?si=GRkxOu9pfrIB_4vJ" target="_blank">
+                <img src="kingbetnew.png" alt="King Bet Video">
+            </a>
+        </div>
+
+        <div class="games-grid">
+            <a href="#" class="game-item" onclick="alert('Spin Game ආරම්භ විය!')"><img src="aviator.jpg.webp" alt="Aviator"></a>
+            <a href="#" class="game-item" onclick="alert('JetX Game ආරම්භ විය!')"><img src="jetx.jpg" alt="JetX"></a>
+            <a href="#" class="game-item" onclick="alert('7UpDown Game ආරම්භ විය!')"><img src="7updown.jpg" alt="7UpDown"></a>
+            <a href="#" class="game-item" onclick="alert('LuckySpin Game ආරම්භ විය!')"><img src="luckyspin.png" alt="LuckySpin"></a>
+        </div>
     </div>
 
-    <div class="video-box">
-        <a href="https://youtu.be/yDrej0e4GWE?si=GRkxOu9pfrIB_4vJ" target="_blank">
-            <img src="kingbetnew.png" alt="King Bet Video">
-        </a>
-    </div>
-
-    <div class="games-grid">
-        <a href="#" class="game-item"><img src="aviator.jpg.webp" alt="Aviator"></a>
-        <a href="#" class="game-item"><img src="jetx.jpg" alt="JetX"></a>
-        <a href="#" class="game-item"><img src="7updown.jpg" alt="7UpDown"></a>
-        <a href="#" class="game-item"><img src="luckyspin.png" alt="LuckySpin"></a>
-    </div>
-
+    <script>
+        // මෙතනට ඔයාගේ ගේම් වල JavaScript Logic එක දාන්න පුළුවන්
+        function updateBal(amount) {
+            let balanceEl = document.getElementById('balance');
+            let currentBal = parseFloat(balanceEl.innerText);
+            balanceEl.innerText = (currentBal + amount).toFixed(2);
+        }
+    </script>
 </body>
 </html>
