@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Lucky Mega Spin</title>
-    <style>body { background: #000; color: #fff; text-align: center; padding: 20px; }</style>
-</head>
+<html lang="si">
+<head><title>Lucky Mega Spin</title>
+<style>body{background:#000;color:#fff;text-align:center;padding:20px;font-family:sans-serif;} .win{color:green;} .loss{color:red;}</style></head>
 <body>
-    <button onclick="window.location.href='dashboard.html'">← BACK</button>
+    <button onclick="location.href='dashboard.html'">← BACK</button>
+    <h1>💎 <span id="bal">500</span></h1>
+    <input type="number" id="bet" placeholder="5-1000 Gems">
+    <button onclick="spin()">SPIN NOW</button>
+    <h2 id="res"></h2>
     <script>
-        // Spin Game JavaScript Logic එක මෙතනට
+        let b = parseFloat(localStorage.getItem('balance') || 500);
+        document.getElementById('bal').innerText = b.toFixed(2);
+        function spin() {
+            let bet = parseFloat(document.getElementById('bet').value);
+            if(bet < 5 || bet > b) return alert("Invalid Bet!");
+            let sec = [0, 0.5, 0.75, 1, 0.1, 1.5, 2, 5.7];
+            let res = sec[Math.floor(Math.random()*sec.length)];
+            let win = bet * res;
+            b = b - bet + win;
+            localStorage.setItem('balance', b);
+            document.getElementById('bal').innerText = b.toFixed(2);
+            let r = document.getElementById('res');
+            if(res == 1.5 || res == 2 || res == 5.7) r.innerHTML = `<span class="win">Congratulations You win baby! Won: ${win.toFixed(2)}</span>`;
+            else if(res == 1) r.innerHTML = `<span style="color:yellow">OMG Try Again Sweetie!</span>`;
+            else r.innerHTML = `<span class="loss">Opps you lost honey try again! Lost: ${bet.toFixed(2)}</span>`;
+        }
     </script>
 </body>
 </html>
