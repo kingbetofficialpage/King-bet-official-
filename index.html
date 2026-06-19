@@ -1,56 +1,39 @@
 <!DOCTYPE html>
-<html lang="si">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King Bet - Welcome</title>
     <style>
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: black; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            overflow: hidden; /* තිරයෙන් පිටතට යාම වැළැක්වීමට */
-        }
-        .video-container { 
-            width: 100vw; 
-            height: 100vh; 
-            position: relative;
-        }
-        iframe { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-        }
+        body { margin: 0; padding: 0; background-color: black; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100vh; overflow: hidden; }
+        
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
+        
+        .btn-container { z-index: 2; margin-bottom: 50px; }
+        
         .btn { 
-            position: absolute; 
-            bottom: 60px; /* තිරයේ පහළ සිට පරතරය */
             padding: 15px 40px; 
-            background: #ffcc00; 
+            background: linear-gradient(to bottom, #ffcc00, #b8860b); 
             color: black; 
             border: none; 
-            border-radius: 10px; 
+            border-radius: 30px; 
             font-weight: bold; 
-            font-size: 18px; 
+            font-size: 20px; 
             cursor: pointer; 
             text-decoration: none; 
-            z-index: 10;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            transition: 0.3s;
         }
+        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/l177exMjs7Y" allowfullscreen></iframe>
-        
-        <div style="display: flex; justify-content: center;">
-            <a href="dashboard.html" class="btn">Enter King Bet</a>
-        </div>
+        <iframe src="https://www.youtube.com/embed/l177exMjs7Y?autoplay=1&mute=1&loop=1&playlist=l177exMjs7Y" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="btn-container">
+        <a href="dashboard.html" class="btn">Enter King Bet</a>
     </div>
 
 </body>
