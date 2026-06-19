@@ -9,7 +9,7 @@
         
         .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
         
-        /* ඩයමන්ඩ් බොක්ස් එක දිලිසෙන ලෙස (Glow effect) */
+        /* ඩයමන්ඩ් දිලිසෙන කොටස */
         .diamond-box { 
             background: #222; padding: 6px 18px; border-radius: 20px; font-weight: bold; color: #ffcc00; 
             border: 1px solid #ffcc00; 
@@ -18,14 +18,14 @@
         }
         @keyframes pulse { 0% { box-shadow: 0 0 5px #ffcc00; } 50% { box-shadow: 0 0 20px #ffcc00; } 100% { box-shadow: 0 0 5px #ffcc00; } }
         
-        .video-box { width: 100%; aspect-ratio: 16 / 9; border: 2px solid red; border-radius: 15px; overflow: hidden; margin-bottom: 20px; }
-        .video-box img { width: 100%; height: 100%; object-fit: cover; }
+        /* වීඩියෝ ලින්ක් පින්තූරය */
+        .video-box { width: 100%; aspect-ratio: 16 / 9; border: 2px solid red; border-radius: 15px; overflow: hidden; margin-bottom: 20px; background: #000; }
+        .video-box img { width: 100%; height: 100%; object-fit: contain; }
         
-        .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .game-item { width: 100%; height: 130px; border: 2px solid #00ff00; border-radius: 15px; overflow: hidden; background: #000; }
-        
-        /* පින්තූර සම්පූර්ණයෙන් පෙන්වීමට */
-        .game-item img { width: 100%; height: 100%; object-fit: fill; }
+        /* ගේම්ස් පින්තූර - පින්තූර පැහැදිලිව තිරය පුරා */
+        .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-bottom: 30px; }
+        .game-item { width: 100%; aspect-ratio: 1 / 1; border: 2px solid #00ff00; border-radius: 15px; overflow: hidden; background: #111; }
+        .game-item img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
