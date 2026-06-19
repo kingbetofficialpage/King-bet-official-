@@ -2,21 +2,52 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Bet - Welcome</title>
     <style>
-        body { margin: 0; padding: 0; background-color: black; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: white; }
-        .video-container { width: 100%; max-width: 400px; height: 60vh; }
-        iframe { width: 100%; height: 100%; border: none; }
-        .btn { margin-top: 20px; padding: 15px 30px; background: #ffcc00; color: black; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: black; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            color: white; 
+        }
+        .video-container { 
+            width: 90%; 
+            max-width: 500px; 
+            aspect-ratio: 9/16; /* වීඩියෝව සිරස් අතට පෙන්වීමට */
+        }
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
+        .btn { 
+            margin-top: 30px; 
+            padding: 15px 50px; 
+            background: #ffcc00; 
+            color: black; 
+            border: none; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            font-size: 18px; 
+            cursor: pointer; 
+            text-decoration: none; 
+        }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <!-- මෙතන තමයි වීඩියෝ එක තියෙන්නේ -->
+        <!-- YouTube වීඩියෝව -->
         <iframe src="https://www.youtube.com/embed/l177exMjs7Y" allowfullscreen></iframe>
     </div>
 
-    <button class="btn" onclick="window.location.href='dashboard.html'">Enter King Bet</button>
+    <!-- Dashboard එකට යන බටන් එක -->
+    <a href="dashboard.html" class="btn">Enter King Bet</a>
 
 </body>
 </html>
