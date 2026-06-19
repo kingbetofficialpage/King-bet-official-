@@ -6,18 +6,19 @@
     <title>King Bet Dashboard</title>
     <style>
         body { background-color: #000; color: #fff; margin: 0; padding: 15px; font-family: sans-serif; }
+        
+        /* Profile සහ Diamond */
         .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
         .diamond-box { background: #222; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #ffcc00; border: 1px solid #ffcc00; }
         
-        /* වීඩියෝ පෙට්ටිය */
+        /* වීඩියෝව වෙනුවට පින්තූරය */
         .video-box { width: 100%; height: 220px; border: 2px solid #ff0000; border-radius: 15px; overflow: hidden; margin-bottom: 20px; }
-        .video-box iframe { width: 100%; height: 100%; border: none; }
+        .video-box img { width: 100%; height: 100%; object-fit: cover; }
         
         /* ගේම්ස් පින්තූර පෙට්ටිය */
         .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .game-item { width: 100%; height: 130px; border: 2px solid #00ff00; border-radius: 15px; overflow: hidden; transition: 0.3s; }
+        .game-item { width: 100%; height: 130px; border: 2px solid #00ff00; border-radius: 15px; overflow: hidden; }
         .game-item img { width: 100%; height: 100%; object-fit: cover; }
-        .game-item:hover { transform: scale(1.03); }
     </style>
 </head>
 <body>
@@ -27,10 +28,14 @@
         <div class="diamond-box">💎 ඩයමන්ඩ්: 0</div>
     </div>
 
+    <!-- වීඩියෝ ලින්ක් එක සහිත පින්තූරය -->
     <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/9" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <a href="https://youtu.be/yDrej0e4GWE?si=GRkxOu9pfrIB_4vJ" target="_blank">
+            <img src="kingbetnew.png" alt="King Bet Video">
+        </a>
     </div>
 
+    <!-- ගේම්ස් කොටු -->
     <div class="games-grid">
         <a href="#" class="game-item"><img src="aviator.jpg.webp" alt="Aviator"></a>
         <a href="#" class="game-item"><img src="jetx.jpg" alt="JetX"></a>
