@@ -3,12 +3,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; padding: 0; background-color: black; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100vh; overflow: hidden; }
+        body { margin: 0; padding: 0; background-color: black; height: 100vh; overflow: hidden; }
         
-        .video-container { width: 100%; height: 85vh; position: relative; }
+        /* වීඩියෝව තිරය පුරාම තැබීමට */
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         iframe { width: 100%; height: 100%; border: none; }
         
-        .btn-container { width: 100%; height: 15vh; display: flex; justify-content: center; align-items: center; background-color: black; }
+        /* බොත්තම වීඩියෝවට උඩින් පෙන්වීමට */
+        .btn-container { 
+            position: absolute; 
+            bottom: 40px; 
+            width: 100%; 
+            display: flex; 
+            justify-content: center; 
+            z-index: 999; /* මෙය අනිවාර්යයෙන්ම වීඩියෝවට උඩින් තියයි */
+        }
         
         .btn { 
             padding: 15px 50px; 
@@ -19,6 +28,7 @@
             font-weight: bold; 
             font-size: 20px; 
             text-decoration: none; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
