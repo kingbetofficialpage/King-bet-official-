@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Royal 7 Dice</title>
-    <style>body { background: #000; color: #fff; text-align: center; padding: 20px; }</style>
-</head>
+<html lang="si">
+<head><title>Royal 7 Dice</title>
+<style>body{background:#000;color:#fff;text-align:center;padding:20px;} .btn{padding:10px;margin:5px;cursor:pointer;}</style></head>
 <body>
-    <button onclick="window.location.href='dashboard.html'">← BACK</button>
+    <button onclick="location.href='dashboard.html'">← BACK</button>
+    <h1>💎 <span id="bal">500</span></h1>
+    <input type="number" id="bet" placeholder="10-250">
+    <br><button class="btn" onclick="m='low'">7 අඩු</button><button class="btn" onclick="m='mid'">7</button><button class="btn" onclick="m='high'">7 වැඩි</button>
+    <br><button onclick="roll()">ROLL DICE</button>
+    <h2 id="res"></h2>
     <script>
-        // Dice Game JavaScript Logic එක මෙතනට
+        let m = 'low';
+        function roll() {
+            let bet = parseFloat(document.getElementById('bet').value);
+            let t = Math.floor(Math.random()*6)+1 + Math.floor(Math.random()*6)+1;
+            let b = parseFloat(localStorage.getItem('balance') || 500);
+            let win = (m=='low'&&t<7) || (m=='high'&&t>7) ? bet*1.9 : (m=='mid'&&t==7 ? bet*3.9 : 0);
+            b = b - bet + win;
+            localStorage.setItem('balance', b);
+            document.getElementById('bal').innerText = b.toFixed(2);
+            document.getElementById('res').innerHTML = win > 0 ? `<span style="color:green">Congratulations Baby you win! Total: ${t}</span>` : `<span style="color:red">Opps you lost honey try again! Total: ${t}</span>`;
+        }
     </script>
 </body>
 </html>
